@@ -28,3 +28,7 @@ You can update the index.html file and all the files inside the game repository
 - [ ] : As a ennemy, I want to move on one axe
 - [ ] : As a user, I want to decrease my life when I am touch by an ennemy
 - [ ] : As a user, I want to decrease my life when I fall 
+
+Additional features :
+- [X] : The ennemy is red
+- [X] : As a user I want to see stats of ennemy
