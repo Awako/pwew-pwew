@@ -44,7 +44,20 @@ function bullet_collision()
     //collision between bullet and walls
     for (var i = 0; i < player1.bullets.length; i++)
     {
-        if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
+        if (Math.abs(player1.bullets[i].position.x) - Math.abs(player2.graphic.position.x) <= 20 &&
+            Math.abs(player1.bullets[i].position.y) - Math.abs(player2.graphic.position.y) <= 20)
+        {
+            player2.life--;
+            if (player2.life == 0)
+            {
+                scene.remove(player2);
+                player2.dead();
+            }
+            scene.remove(player1.bullets[i]);
+            player1.bullets.splice(i, 1);
+            i--;
+        }
+        else if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
             Math.abs(player1.bullets[i].position.y) >= HEIGHT / 2)
         {
             scene.remove(player1.bullets[i]);
@@ -52,7 +65,6 @@ function bullet_collision()
             i--;
         }
     }
-
 }
 
 function player_collision()
@@ -98,5 +110,4 @@ function player_falling()
             player1.dead();
         }
     }
-
 }
