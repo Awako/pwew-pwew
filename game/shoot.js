@@ -44,8 +44,10 @@ function bullet_collision()
     //collision between bullet and walls
     for (var i = 0; i < player1.bullets.length; i++)
     {
-        if (Math.abs(player1.bullets[i].position.x) - Math.abs(player2.graphic.position.x) <= 20 &&
-            Math.abs(player1.bullets[i].position.y) - Math.abs(player2.graphic.position.y) <= 20)
+        pointX = player1.bullets[i].position.x - player2.position.x;
+        pointY = player1.bullets[i].position.y - player2.position.y;
+        if (-20 <= pointX && pointX <= 20 &&
+             -20 <= pointY && pointY <= 20)
         {
             player2.life--;
             if (player2.life == 0)
